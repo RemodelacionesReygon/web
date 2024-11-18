@@ -1,0 +1,236 @@
+* {
+  box-sizing: border-box;
+  margin: 0%;
+  padding: 0%;
+}
+
+html {
+  height: 100%;
+}
+body {
+  min-height: 100%;
+}
+.grid-contenedor > * {
+  padding: 10px;
+  text-align: center;
+}
+.grid-contenedor {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "navbar"
+    "sidebar"
+    "main"
+    "footer";
+}
+.sidebar a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  gap: 10px;
+  font-family: "Roboto", sans-serif;
+}
+
+.header {
+  grid-area: header;
+  color: aliceblue;
+
+  font-size: 40px;
+  display: flex;
+  background-color: rgb(59, 66, 75);
+  justify-content: center;
+  align-items: center;
+}
+.navbar {
+  grid-area: navbar;
+  background-color: rgb(51, 57, 65);
+}
+.sidebar h2 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  position: relative;
+  font-size: 80px;
+  color: rgb(255, 255, 255);
+}
+.sidebar p {
+  color: rgb(255, 255, 255);
+}
+.sidebar {
+  display: flex;
+  grid-area: sidebar;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-image: linear-gradient(rgb(0, 0, 0, 0.5), rgb(0, 0, 0, 0.5)),
+    url(recursos/fondo.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 10px;
+}
+.sidebar button {
+  display: flex;
+  border: 0;
+  border-radius: 20px;
+  padding: 10px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+.sidebar button:hover {
+  scale: 110%;
+}
+.main2 {
+  display: flex;
+  grid-area: main2;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.main2 h2 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  position: relative;
+  font-size: 40px;
+}
+.main {
+  display: flex;
+  grid-area: main;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.main img {
+  max-width: 500px;
+  max-height: 600px;
+}
+.desc{
+  display: flex;
+  grid-area: desc;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.desc h2{
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  position: relative;
+  font-size: 40px;
+}
+.footer {
+  display: flex;
+  grid-area: footer;
+  background-color: rgb(59, 66, 75);
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+}
+.footer p{
+  color: #fff;
+
+}
+
+@media (min-width: 200px) {
+  .grid-contenedor {
+    grid-template:
+      "header " 50px
+      "navbar " 30px
+      "sidebar" 300px
+      "main2"
+      "main"
+      "desc"
+      "container-carousel" 300px
+      "footer " 70px;
+  }
+  .sidebar h2 {
+    font-size: 40px;
+  }
+  .main img {
+    max-height: 400px;
+  }
+}
+@media (min-width: 600px) {
+  .grid-contenedor {
+    grid-template:
+      "header header" 70px
+      "navbar navbar" 30px
+      "sidebar sidebar" 500px
+      "main2 main"
+      "container-carousel desc"  600px 
+      "footer footer" 70px;
+  }
+  .main img {
+    max-width: 600px;
+    max-height: 600px;
+  }
+}
+
+
+/*Slider seccion*/
+.container-carousel {
+  grid-area: container-carousel;
+  position: relative;
+  background-image: url(recursos/slide1.avif);
+  background-position: center;
+  background-size: cover;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.66);
+  border-radius: 15px;
+  overflow: hidden;
+  margin: 10%;
+
+}
+
+.carruseles {
+  width: 1000%;
+  height: 100%;
+  display: flex;
+
+}
+
+.slider-section {
+  width: calc(100% / 8);
+  height: 100%;
+}
+
+.slider-section img {
+  width: 100%;
+  height: 100%;
+ 
+  border-radius: 15px;
+}
+
+.btn-left,
+.btn-right {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  font-size: 1.5rem;
+  background-color:black;
+  border-radius: 50%;
+  padding: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #ffffff81;
+  transform: translate(0,-50%);
+  transition: .5s ease;
+  user-select: none;
+}
+
+.btn-left:hover,
+.btn-right:hover {
+  background-color: #333333d4;
+  color: #fff;
+}
+
+.btn-left {
+  left: 10px;
+}
+
+.btn-right {
+  right: 10px;
+}
